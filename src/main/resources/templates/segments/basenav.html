@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css/}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css/}" />
+    <title>BooksMart</title>
+</head>
+<body>
+<div th:fragment="basenav">
+    <nav class=" home navbar navbar-expand-md " style="background: white; box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.10);">
+        <a class="navbar-brand p-0 mt-3" href="/home"><img th:src="@{~/images/logo1.png}" width="160px" height="50px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class=" navbar-collapse collapse mt-3" id="mynav" >
+            <ul  class=" navbar-nav mr-auto d-flex text-center">
+                <li class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+                    <a class="nav-link bounce1" th:href="@{/cart}"><h5 class="p-0 ml-3">CART</h5></a>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link bounce1" th:href="@{product/new}"><h5 class="p-0 ml-3">Add Product</h5></a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link bounce1" th:href="@{/list}"><h5 class="p-0 ml-3">User Details</h5></a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link bounce1" th:href="@{/paylist}"><h5 class="p-0 ml-3">Order Details</h5></a>
+                </li>
+            </ul>
+            <ul class=" navbar-nav text-center ">
+                <li class="nav-item fas fa-user-circle  d-flex fa-2x justify-content-center align-items-center" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" style="color: black; " th:text="${#httpServletRequest.getRemoteUser().toUpperCase()}"><h5></h5></a>
+                    <a class="nav-link" sec:authorize="hasRole('ROLE_USER')" th:href="@{/user}" style="color: black;"  th:text="${#httpServletRequest.getRemoteUser().toUpperCase()}"></a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center" sec:authorize="isAuthenticated()">
+                    <a class="bounce nav-link" th:href="@{/logout}"><h5>Logout</h5></i></a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="bounce nav-link" th:href="@{/login}"><h5>Login</h5></a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="bounce nav-link"  th:href="@{/register}"><h5>Register</h5></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--<script type="text/javascript" th:src="@{webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{webjars/jquery/3.3.1-1/jquery.min.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{/js/lang.js}"></script>-->
+</body>
+
+</html>
+

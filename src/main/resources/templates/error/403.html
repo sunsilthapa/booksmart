@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit=no>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css/}" />
+<!--    <link rel="stylesheet" type="text/css" th:href="@{~/css/bootstrap.min.css}"/>-->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+    <div th:replace="segments/basenav :: basenav"></div>
+
+    <div class="container">
+        <div class="starter-template">
+            <h1 th:text="#{error.title} + ' 403'"></h1>
+            <h3 th:text="#{error.no_access}"></h3>
+            <a href="/home" >Back To Home</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

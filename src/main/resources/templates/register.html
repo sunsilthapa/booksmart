@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css/}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div th:replace="segments/basenav :: basenav"></div>
+    <div class="container mt-3 ">
+        <div class=" register row d-flex justify-content-center " >
+            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0 py-0" style="height: 100%">
+                <img th:src="@{~/images/register.png}" alt="Image 1" style="object-fit: cover; height: 100%; width: 100%;">
+            </div>
+            <div class="field col-xs-12 col-sm-12 col-md-12  col-lg-6 " style="height: 100%;">
+                <form class="form px-3 py-2" autocomplete="off" style="height: 100%;" th:action="@{register}" th:object="${userForm}" method="POST">
+                    <fieldset style="height: 100%;">
+                        <h1 class="title text-center">Register</h1>
+                        <label>Username*</label>
+                        <div class="form-group input-box ">
+                            <input type="text" th:field="*{username}" class=" input-lg mb-1" title="username" />
+                            <div class="underline"></div>
+                            <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                        </div>
+                        <label>Email*</label>
+                        <div class="form-group input-box ">
+                            <input type="email" th:field="*{email}" class=" input-lg mb-1" title="email" required/>
+                            <div class="underline"></div>
+                            <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                        </div>
+                            <label>Password</label>
+                        <div class="form-group input-box ">
+                            <input type="password" th:field="*{password}" class=" input-lg mb-1" title="password" required/>
+                            <div class="underline"></div>
+                            <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
+                            <label>Confirm-Password</label>
+                        <div class="form-group input-box">
+                            <input type="password" th:field="*{passwordConfirm}" class=" input-lg mb-1" title="passwordConfirm" required/>
+                            <div class="underline"></div>
+                            <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></div>
+                        </div>
+                            <label>Full Name</label>
+                        <div class="form-group input-box">
+                            <input type="text" th:field="*{fullName}" class=" input-lg mb-1" title="firstName" />
+                            <div class="underline"></div>
+                            <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+                        </div>
+                            <label>Address</label>
+                        <div class="form-group input-box">
+                            <input type="text" th:field="*{city}" class=" input-lg mb-1" title="city" />
+                            <div class="underline"></div>
+                            <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+                        </div>
+                        <div class="btn col-lg-12">
+                            <p class="mb-1">All fields with * are required!</p>
+                            <input class="btn btn-outline-dark" type="submit" value="Register" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" th:src="@{webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lang.js}"></script>
+</body>
+
+</html>

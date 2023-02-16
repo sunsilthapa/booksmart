@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit=no>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css/}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        .table thead th {
+            background-color: #3f51b5;
+            color: #ffffff;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+        .table td, .table th {
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="segments/basenav :: basenav"></div>
+
+
+<h1 class="text-center">Order Details</h1>
+<div class="container mt-5">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Card No</th>
+            <th>CVV Code</th>
+            <th>Billing Address</th>
+            <th>Email</th>
+            <th>Payment Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order:${payList}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.fullName}"> </td>
+            <td th:text="${order.cardNo}"> </td>
+            <td th:text="${order.cvvNo}"></td>
+            <td th:text="${order.billingAddress}"></td>
+            <td th:text="${order.email}"></td>
+            <td th:text="${order.payAmount}"></td>
+            <td>
+                <a th:href="@{~/paylist/{id}(id=${order.id})}">Delete
+                </a>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

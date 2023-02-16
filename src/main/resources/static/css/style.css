@@ -1,0 +1,236 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: white;
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    /*font-family: ;*/
+    min-height: 100%;
+}
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --secondary-font: 'Cardo', serif;
+}
+
+body {
+    font-family: var(--primary-font);
+}
+
+h1, h2, h3 ,h4{
+    font-family: var(--secondary-font);
+}
+
+span {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    line-height: 50px;
+}
+
+.container {
+    padding-top: 15px;
+    padding-bottom: 8px;
+
+}
+
+.alert {
+    padding-top: 5px;
+}
+
+
+.card-deck {
+    padding-left: 20px;
+}
+a {
+    font-family: var(--primary-font);
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+    /*padding: 10px;*/
+    text-decoration: none;
+}
+
+.navbar-dark .navbar-text {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+
+.navbar-toggler {
+    background-color: black;
+    color: white !important;
+    font-size: 1.5rem;
+    border: none;
+    text-decoration: none;
+    /*padding: 10px 15px;*/
+    /*border-radius: 20px;*/
+    transition: all 0.3s;
+}
+
+.navbar-toggler:hover {
+    color: #8c8c8c;
+    cursor: pointer;
+}
+
+.navbar-toggler.collapsed {
+    transform: scale(0.8);
+}
+
+.navbar-toggler.collapsed .fas {
+    animation: bounce 0.5s;
+}
+
+.navbar-toggler.collapsed:active {
+    border: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+h5{
+    margin-bottom: 0px !important;
+    padding: 3px 16px;
+}
+
+.bounce  {
+    display: inline-block;
+    padding: 4px 20px;
+    background-color: #e0e0e0;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+}
+
+.bounce:hover {
+    animation: bounce-top 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    background-color: black;
+}
+
+@keyframes bounce-top {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: ease-in;
+    }
+    24% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    36% {
+        transform: translateY(-5px);
+        animation-timing-function: ease-in;
+    }
+    48% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        transform: translateY(-2px);
+        animation-timing-function: ease-in;
+    }
+    72% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    81% {
+        transform: translateY(-7px);
+        animation-timing-function: ease-in;
+    }
+    90% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.bounce1  {
+    display: inline-block;
+    padding: 4px 20px;
+    /*background-color: #e0e0e0;*/
+    color: #000000;
+    text-decoration: none;
+    /*border-radius: 20px;*/
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+}
+
+.bounce1:hover {
+    animation: bounce-top1 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    /*box-shadow: 0px 8px 16px rgba(87, 87, 87, 0.2);*/
+    color: #5d5d5d;
+    /*background-color: black;*/
+}
+
+@keyframes bounce-top1 {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: ease-in;
+    }
+    24% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    36% {
+        transform: translateY(-5px);
+        animation-timing-function: ease-in;
+    }
+    48% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        transform: translateY(-2px);
+        animation-timing-function: ease-in;
+    }
+    72% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    81% {
+        transform: translateY(-7px);
+        animation-timing-function: ease-in;
+    }
+    90% {
+        transform: translateY(-10px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

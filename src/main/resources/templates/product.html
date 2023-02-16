@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css/}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/product.css}" />
+</head>
+
+<body>
+
+<div th:replace="segments/basenav :: basenav"></div>
+
+<div class="container">
+    <div class="product row " style="margin-top:20px;">
+        <div class="col-lg-6 col-xs-12 col-sm-8 col-md-12 " style=" padding-left: 0px !important;">
+            <img th:src="@{~/images/add.png}" alt="Image 1" height="600px" width="100%">
+        </div>
+        <div class="field col-lg-6 col-xs-12 col-sm-12 col-md-12 d-flex flex-column justify-content-start align-items-center">
+            <form autocomplete="off" th:object="${productForm}" class="form" method="POST">
+                <fieldset style="text-align: center">
+                    <h1>Introduce New Book</h1>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Book Name</label>
+                        <input type="text" th:field="*{name}" class="form-control input-lg" title="name" autofocus="true" />
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Genre</label>
+                        <input type="text" th:field="*{description}" class="form-control input-lg" title="description" autofocus="false" />
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" >Book Url</label>
+                        <input type="url" th:field="*{imageUrl}" class="form-control input-lg" title="imageUrl" autofocus="false" />
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Price</label>
+                        <input type="search" th:field="*{price}" class="form-control input-lg" title="price" autofocus="false"/>
+                        <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                    </div>
+                    <input th:if="${method} == 'new'" class="btn container-fluid btn-outline-dark " type="submit" th:action="@{/product/new}" th:value="#{product.confirm}"/>
+                    <input th:if="${method} == 'edit'" class="btn container-fluid btn-outline-dark" type="submit" th:action="@{/product/edit/{productId}}" th:value="#{product.cancel}"/>
+                    <input th:if="${method} == 'edit'" class="btn container-fluid btn-outline-dark" type="submit" th:action="@{/product/edit/{productId}}" th:value="#{product.submit}"/>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
